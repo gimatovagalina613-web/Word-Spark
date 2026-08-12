@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WordSpark — a friendly, browser-based English vocabulary trainer.">
+  <title>WordSpark — English Vocabulary Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+  <header class="site-header" aria-label="Main navigation">
+    <button class="brand" id="brand-button" type="button" aria-label="Go to word sets">
+      <span><strong>WordSpark<span class="logo-star">✦</span></strong><small>Learn with a spark</small></span>
+    </button>
+    <nav class="side-nav">
+      <button class="nav-item active" data-nav="home"><span>🏠</span>Home</button>
+      <button class="nav-item" data-nav="sets"><span>📚</span>My Sets</button>
+      <button class="nav-item" data-nav="training"><span>🎯</span>Training</button>
+      <button class="nav-item" data-nav="mistakes"><span>🔥</span>Mistakes</button>
+      <button class="nav-item" data-nav="stats"><span>📊</span>Stats</button>
+      <button class="nav-item" data-nav="settings"><span>⚙️</span>Settings</button>
+    </nav>
+    <div class="sidebar-cheer"><img src="assets/sparky.png" alt="Sparky, the WordSpark mascot"><p>Keep learning<br>every day!</p><span>♥</span></div>
+  </header>
+
+  <main id="app" tabindex="-1" aria-live="polite"></main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="confirm-dialog" class="confirm-dialog">
+    <form method="dialog">
+      <div class="dialog-icon" aria-hidden="true">🗑️</div>
+      <h2>Delete this set?</h2>
+      <p id="confirm-message">This action cannot be undone.</p>
+      <div class="button-row">
+        <button class="button secondary" value="cancel">Cancel</button>
+        <button class="button danger" value="confirm">Delete set</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="name-dialog" class="name-dialog">
+    <form id="name-form">
+      <img src="assets/sparky.png" alt="Sparky welcomes you">
+      <p class="eyebrow">Welcome to WordSpark!</p>
+      <h2>What should I call you?</h2>
+      <p class="muted">Sparky will use your name to make learning feel more personal.</p>
+      <label for="learner-name">Your name</label>
+      <input id="learner-name" name="learnerName" maxlength="30" autocomplete="name" placeholder="Enter your name" required>
+      <p class="validation" id="name-error" role="alert"></p>
+      <button class="button" type="submit">Let's learn! <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+
+  <dialog id="sound-dialog" class="sound-dialog">
+    <form method="dialog">
+      <div class="sound-setting-icon" aria-hidden="true">🎵</div>
+      <h2>Sound Effects</h2>
+      <p class="muted">Interface sounds are separate from English pronunciation.</p>
+      <label class="sound-toggle"><span>Sound Effects</span><input id="sound-enabled" type="checkbox"><i aria-hidden="true"></i></label>
+      <label class="volume-setting" for="sound-volume"><span>Volume</span><output id="sound-volume-output">35%</output></label>
+      <input id="sound-volume" type="range" min="0" max="100" step="5" value="35">
+      <button class="button" value="close">Done</button>
+    </form>
+  </dialog>
+
+  <noscript><p class="noscript">WordSpark needs JavaScript enabled to run.</p></noscript>
+  <script src="script.js"></script>
+</body>
+</html>
